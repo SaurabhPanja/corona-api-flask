@@ -61,10 +61,14 @@ def get_corona_data_api(corona_data_arr):
     return corona_dict
 
 
-
-tbody_tr = scrape_cases_tag()
-corona_data_arr = get_corona_data_arr(tbody_tr)
-corona_data_api = get_corona_data_api(corona_data_arr)
+try:
+    tbody_tr = scrape_cases_tag()
+    corona_data_arr = get_corona_data_arr(tbody_tr)
+    corona_data_api = get_corona_data_api(corona_data_arr)    
+except:
+    corona_data_api = {
+        "message": "oops, too many requests at once. Please upgrade this dyno."
+    }
 
 
 
