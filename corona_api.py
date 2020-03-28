@@ -67,7 +67,7 @@ try:
     corona_data_api = get_corona_data_api(corona_data_arr)    
 except:
     corona_data_api = {
-        "message": "oops, too many requests at once. Please upgrade this dyno."
+        "message": "Seems Ministry of Health and Family Welfare is not showing data as of now."
     }
 
 
