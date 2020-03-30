@@ -17,21 +17,30 @@ https://www.mohfw.gov.in/
 
 These are *[mailgun]('https://www.mailgun.com/') smtp* credentials.
 
-Comment ```send_mail``` in *corona_api.py* if you do not wish to use it.
+Comment ```send_mail``` function in *corona_api.py* if you do not wish to use it.
 
+---
 
 ### Installation
 *create a virtual env*
 
 ```pip install -r requirements.txt```
 
+---
+
 ### To Run
 
 ```python3 main.py ```
 
+---
+
 The application should be running on *localhost* at port *5000* by default.
 
-http://localhost:5000
+To get data from all the provinces. <br> http://localhost:5000  
+
+To get data from a province. <br> http://localhost:5000/province_name
+
+---
 
 ## [Link to the app hosted on heroku.]("https://shrouded-journey-40316.herokuapp.com/")
 
