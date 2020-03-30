@@ -66,7 +66,7 @@ def get_corona_data_api(corona_data_arr):
 def send_mail(mail_text):
     msg = MIMEText(mail_text)
     msg['Subject'] = "Corona API Stopped Working."
-    msg['From']    = "error@saurabhpanja.com"
+    msg['From']    = "Error@saurabhpanja.com"
     msg['To']      = "panjasaurabh@gmail.com"
 
     s = smtplib.SMTP('smtp.mailgun.org', 587)
@@ -82,9 +82,11 @@ def send_mail(mail_text):
 try:
     tbody_tr = scrape_cases_tag()
     corona_data_arr = get_corona_data_arr(tbody_tr)
-    corona_data_api = get_corona_data_api(corona_data_arr)    
+    corona_data_api = get_corona_data_api(corona_data_arr)  
 except Exception as e:
     error_log = traceback.format_exc()
+
+    send_mail(error_log)
 
     corona_data_api = {
         "message": "Seems Ministry of Health and Family Welfare is not showing data as of now."
