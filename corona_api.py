@@ -26,17 +26,14 @@ def get_corona_data_api(corona_data_arr):
 
     corona_dict = {}
     for data in corona_data_arr:
-        # corona_dict = {}
-        if len(data) > 5:
+        if len(data) > 4:
             province = data[1].lower().replace(" ", "_")
-            cases_indian = data[2]
-            cases_foreign = data[3]
-            cured = data[4]
-            death = data[5]
+            cases_total = data[2]
+            cured = data[3]
+            death = data[4]
 
             province_data = {
-                'cases_indian' : cases_indian,
-                'cases_foreign' : cases_foreign,
+                'cases_total': cases_total,
                 'cured' : cured,
                 'death' : death,
             }
@@ -44,14 +41,12 @@ def get_corona_data_api(corona_data_arr):
             corona_dict[province] = province_data
 
         elif len(data) > 1:
-            cases_indian = data[1].replace("#","")
-            cases_foreign = data[2].replace("\n","")
-            cured = data[3].replace("\n","")
-            death = data[4].replace("\n","")
+            cases_total = data[1].replace("\n","")
+            cured = data[2].replace("\n","")
+            death = data[3].replace("\n","")
 
             total = {
-                'cases_indian' : cases_indian,
-                'cases_foreign' : cases_foreign,
+                'cases_total': cases_total,
                 'cured' : cured,
                 'death' : death, 
             }
@@ -59,6 +54,7 @@ def get_corona_data_api(corona_data_arr):
             corona_dict['total'] = total
             
     return corona_dict
+
 
 
 try:
