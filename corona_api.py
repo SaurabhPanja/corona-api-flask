@@ -1,6 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
 import traceback
+import smtplib
+from email.mime.text import MIMEText
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 #cases is the id of div on the website
 def scrape_cases_tag():
@@ -55,6 +61,21 @@ def get_corona_data_api(corona_data_arr):
             corona_dict['total'] = total
             
     return corona_dict
+
+
+def send_mail(mail_text):
+    msg = MIMEText(mail_text)
+    msg['Subject'] = "Corona API Stopped Working."
+    msg['From']    = "error@saurabhpanja.com"
+    msg['To']      = "panjasaurabh@gmail.com"
+
+    s = smtplib.SMTP('smtp.mailgun.org', 587)
+    
+    USER_NAME = os.getenv('USER_NAME')
+    PASSWORD = os.getenv('PASSWORD')
+    s.login(USER_NAME,PASSWORD)
+    s.sendmail(msg['From'], msg['To'], msg.as_string())
+    s.quit()
 
 
 
