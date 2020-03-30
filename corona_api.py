@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import traceback
 
 #cases is the id of div on the website
 def scrape_cases_tag():
@@ -65,7 +66,9 @@ try:
     tbody_tr = scrape_cases_tag()
     corona_data_arr = get_corona_data_arr(tbody_tr)
     corona_data_api = get_corona_data_api(corona_data_arr)    
-except:
+except Exception as e:
+    error_log = traceback.format_exc()
+
     corona_data_api = {
         "message": "Seems Ministry of Health and Family Welfare is not showing data as of now."
     }
