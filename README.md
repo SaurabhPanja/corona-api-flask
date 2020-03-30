@@ -8,6 +8,18 @@ Here is the link.
 
 https://www.mohfw.gov.in/
 
+## Setup
+*Create a .env file for sending error to mailbox when an error occurs.*
+
+**env** variables are:
+* USER_NAME
+* PASSWORD
+
+These are *[mailgun]('https://www.mailgun.com/') smtp* credentials.
+
+Comment ```send_mail``` in *corona_api.py* if you do not wish to use it.
+
+
 ### Installation
 *create a virtual env*
 
