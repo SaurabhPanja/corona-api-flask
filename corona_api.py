@@ -13,7 +13,7 @@ def scrape_cases_tag():
     html_doc = requests.get("https://www.mohfw.gov.in/").text
     soup = BeautifulSoup(html_doc, 'html.parser')
 
-    cases_table_tbody = soup.find(id = "cases").table.tbody
+    cases_table_tbody = soup.find("table").tbody
     tbody_tr = cases_table_tbody.find_all("tr")
     
     return tbody_tr
@@ -82,7 +82,7 @@ def send_mail(mail_text):
 try:
     tbody_tr = scrape_cases_tag()
     corona_data_arr = get_corona_data_arr(tbody_tr)
-    corona_data_api = get_corona_data_api(corona_data_arr)  
+    corona_data_api = get_corona_data_api(corona_data_arr) 
 except Exception as e:
     error_log = traceback.format_exc()
 
