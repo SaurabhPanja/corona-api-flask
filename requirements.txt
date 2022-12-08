@@ -1,5 +1,5 @@
 beautifulsoup4==4.8.2
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 html5lib==1.0.1
 idna==2.9
@@ -9,7 +9,7 @@ soupsieve==2.0
 urllib3==1.25.8
 webencodings==0.5.1
 beautifulsoup4==4.8.2
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 click==7.1.1
 Flask==1.1.1
@@ -26,7 +26,7 @@ urllib3==1.25.8
 webencodings==0.5.1
 Werkzeug==1.0.0
 beautifulsoup4==4.8.2
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 click==7.1.1
 Flask==1.1.1
